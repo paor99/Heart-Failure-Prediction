@@ -36,13 +36,13 @@ print('Random Forest accuracy:',accuracy_forest*100)
 #user input to test
 age = int(input("What's the age of the patient?: "))
 anaemia = int(input("Does the patient have anaemia?\n0)No 1)Yes: "))
-cpp = int(input("What's the CPP level?: "))
+cpp = int(input("What's the CPK level?(32 - 294 mcg/L): "))
 diabetes = int(input("Does the patient have diabetes?\n0)No 1)Yes: "))
 ef = int(input("What's the ejection fraction percentage?: "))
 hbp = int(input("Does the patient have high blood pressure?\n0)No 1)Yes: "))
-platelets = int(input("What's the platelets amount?: "))
+platelets = int(input("What's the platelets amount?(150k - 400k mcL): "))
 sc = float(input("What's the SC level?: "))
-ss = int(input("What's the SS level?: "))
+ss = int(input("What's the SS level?(136 - 145 mmol/L): "))
 sex = int(input("What's the patient's sex?\n0)Female 1)Male: "))
 smoke = int(input("Does the patient smoke?\n0)No 1)Yes: "))
 time = int(input("How many days ago did the patient suffer the incident?: "))
@@ -59,7 +59,7 @@ print("\nAccording to the decision tree, the patient is more likely to",pred_tre
 prob_forest = tree_clf.predict_proba([[age,anaemia,cpp,diabetes,ef,hbp,platelets,sc,ss,sex,smoke,time]])
 pred_forest =  tree_clf.predict([[age,anaemia,cpp,diabetes,ef,hbp,platelets,sc,ss,sex,smoke,time]])
 if pred_forest == 1:
-  pred_forest = 'Die'
+  pred_forest = 'die'
 else:
-  pred_forest = 'Live'
-print("\nAccording to the random forests, the patient is more likely to:",pred_forest, "and the probability for the patient to die is:", int(prob_forest[0][1]*100))
+  pred_forest = 'live'
+print("\nAccording to the random forest, the patient is more likely to",pred_forest, "and the probability for the patient to die is:", int(prob_forest[0][1]*100))
